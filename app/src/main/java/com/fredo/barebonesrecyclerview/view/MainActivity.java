@@ -1,4 +1,4 @@
-package com.fredo.barebonesrecyclerview;
+package com.fredo.barebonesrecyclerview.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,11 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+import com.fredo.barebonesrecyclerview.R;
+import com.fredo.barebonesrecyclerview.RecyclerAdapter;
+import com.hannesdorfmann.mosby.mvp.MvpActivity;
+
+public class MainActivity extends MvpActivity<ActivityViewInterface Presenter> implements ActivityViewInterface {
 
     private RecyclerView recyclerView;
     private RecyclerAdapter recAdapter;
