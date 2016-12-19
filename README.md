@@ -17,15 +17,19 @@ Simple implementation of a recycler view with Mosby
     * `extend MvpActivity<ActivityViewInterface, Presenter> implements AvtivityViewInterface`
 
 #Step 4: Write View and Presenter classes
-* a) ActivityViewInterface.java
+* a) `ActivityViewInterface.java extends MvpView`
     * Outlines what the view can do for the presenter
     * for example
         * `showError()`
         * `showList()`
         * `hideError()`
-* b) Presenter.java
+        * `displayData()`
+* b) `Presenter extends MvpBasePresenter<ActivityViewInterface>`
     * Connects the model to the views
     * holds refs to data/network sources called by callbacks on views and model to get data where it needs to go
 
 #Step 5: Move data providing objects/code to model package and access data through presenter
+* refactor code to display data in MainActivity to `displayData()`
+* refactor adapter to take in the data array later with a `setData()` method
+* move the data array to its own class and hold a reference to it in the presenter
 

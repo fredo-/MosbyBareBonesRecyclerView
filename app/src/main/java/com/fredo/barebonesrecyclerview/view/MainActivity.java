@@ -1,5 +1,6 @@
 package com.fredo.barebonesrecyclerview.view;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -8,9 +9,10 @@ import android.support.v7.widget.RecyclerView;
 
 import com.fredo.barebonesrecyclerview.R;
 import com.fredo.barebonesrecyclerview.RecyclerAdapter;
+import com.fredo.barebonesrecyclerview.presenter.Presenter;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
-public class MainActivity extends MvpActivity<ActivityViewInterface Presenter> implements ActivityViewInterface {
+public class MainActivity extends MvpActivity<ActivityViewInterface, Presenter> implements ActivityViewInterface {
 
     private RecyclerView recyclerView;
     private RecyclerAdapter recAdapter;
@@ -28,5 +30,11 @@ public class MainActivity extends MvpActivity<ActivityViewInterface Presenter> i
 
         recyclerView.setAdapter(recAdapter);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @NonNull
+    @Override
+    public Presenter createPresenter() {
+        return null;
     }
 }
