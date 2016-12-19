@@ -15,6 +15,11 @@ Simple implementation of a recycler view with Mosby
 #Step 3: Change activity's extensions
 * Make the main activity
     * `extend MvpActivity<ActivityViewInterface, Presenter> implements AvtivityViewInterface`
+    * implement `createPresenter()`
+        * return a new instance of the presenter you want for the instance of the activity/fragment/view
+        * this method allows you to check what instance you have of the class and return the right presenter
+            * for example if you have two tabs both of which use the same fragment code, but two different instances because they do slightly different things, you can check which type of instance the object is and return two different presenters
+            * this is useful if you want to use the same view for slightly different data (two lists but with different headers/different displays of similar data)
 
 #Step 4: Write View and Presenter classes
 * a) `ActivityViewInterface.java extends MvpView`

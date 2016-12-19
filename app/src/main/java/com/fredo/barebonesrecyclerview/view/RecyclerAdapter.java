@@ -1,4 +1,4 @@
-package com.fredo.barebonesrecyclerview;
+package com.fredo.barebonesrecyclerview.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,15 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.fredo.barebonesrecyclerview.R;
+
 /**
  * Created by alfredovelasco on 12/10/16.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CustomHolder> {
     private int[] data;
-
-    public RecyclerAdapter(int[] data) {
-        this.data = data;
-    }
 
     @Override
     public CustomHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,6 +29,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Custom
     @Override
     public int getItemCount() {
         return data.length;
+    }
+
+    public void setData(int[] data) {
+        this.data = data;
     }
 
     public class CustomHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

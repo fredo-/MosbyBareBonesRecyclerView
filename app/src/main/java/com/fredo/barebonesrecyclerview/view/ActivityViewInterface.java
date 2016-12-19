@@ -7,4 +7,6 @@ import com.hannesdorfmann.mosby.mvp.MvpView;
  */
 
 public interface ActivityViewInterface extends MvpView {
+    void displayData(int[] data);
+    void setUpRecyclerView();
 }

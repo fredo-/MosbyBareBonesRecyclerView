@@ -1,14 +1,11 @@
 package com.fredo.barebonesrecyclerview.view;
 
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.fredo.barebonesrecyclerview.R;
-import com.fredo.barebonesrecyclerview.RecyclerAdapter;
 import com.fredo.barebonesrecyclerview.presenter.Presenter;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
@@ -17,17 +14,24 @@ public class MainActivity extends MvpActivity<ActivityViewInterface, Presenter> 
     private RecyclerView recyclerView;
     private RecyclerAdapter recAdapter;
     private LinearLayoutManager layoutManager;
-    private int[] data = {1, 2, 3, 4};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpRecyclerView();
+        showNumList();
+    }
 
+    private void showNumList() {
+        presenter.loadData();
+    }
+
+    @Override
+    public void setUpRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.list);
-        recAdapter = new RecyclerAdapter(data);
+        recAdapter = new RecyclerAdapter();
         layoutManager = new LinearLayoutManager(this);
-
         recyclerView.setAdapter(recAdapter);
         recyclerView.setLayoutManager(layoutManager);
     }
@@ -35,6 +39,12 @@ public class MainActivity extends MvpActivity<ActivityViewInterface, Presenter> 
     @NonNull
     @Override
     public Presenter createPresenter() {
-        return null;
+        return new Presenter();
+    }
+
+    @Override
+    public void displayData(int[] data) {
+        recAdapter.setData(data);
+        recAdapter.notifyDataSetChanged();
     }
 }
