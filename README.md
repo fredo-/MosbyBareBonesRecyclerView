@@ -22,7 +22,7 @@ Simple implementation of a recycler view with Mosby
             * this is useful if you want to use the same view for slightly different data (two lists but with different headers/different displays of similar data)
 
 #Step 4: Write View Interface and Presenter class
-* a) `interface ActivityViewInterface.java extends MvpView`
+* a) `public interface ActivityViewInterface.java extends MvpView`
     * Outlines what the view can do for the presenter
     * for example
         * `showError()`
