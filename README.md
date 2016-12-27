@@ -21,15 +21,15 @@ Simple implementation of a recycler view with Mosby
             * for example if you have two tabs both of which use the same fragment code, but two different instances because they do slightly different things, you can check which type of instance the object is and return two different presenters
             * this is useful if you want to use the same view for slightly different data (two lists but with different headers/different displays of similar data)
 
-#Step 4: Write View and Presenter classes
-* a) `ActivityViewInterface.java extends MvpView`
+#Step 4: Write View Interface and Presenter class
+* a) `interface ActivityViewInterface.java extends MvpView`
     * Outlines what the view can do for the presenter
     * for example
         * `showError()`
         * `showList()`
         * `hideError()`
         * `displayData()`
-* b) `Presenter extends MvpBasePresenter<ActivityViewInterface>`
+* b) `public class Presenter extends MvpBasePresenter<ActivityViewInterface>`
     * Connects the model to the views
     * holds refs to data/network sources called by callbacks on views and model to get data where it needs to go
 
